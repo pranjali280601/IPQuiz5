@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" /><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<title>Quiz</title>
+
+<style>
+p{
+font-family:"Playfair Display";
+font-size:20px;
+color:white;
+}
+form{
+font-family:"Playfair Display";
+font-size:20px;
+color:white;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+</style>
+</head>
+<body style="background-image:url('./images/6.jpg');background-size: cover;background-position: center center;background-attachment: fixed;">
+
+
+
+
+<div style="margin-left:15%; margin-right:15%">
+<b><center><h1 style="font-size:70px;color:#ffc107;font-family:Playfair Display;">Quiz</h1></center>
+<br>
+
+<form name="quiz" style="color:white !important; align-items:center;">
+
+<p><b><i>Q1.</i></b> What was the code name of the operation to conduct nuclear test at Pokhran in May 1998? <br></b> 
+
+<blockquote>
+
+<input type="radio" name="q1" value="A">&nbsp Shakti<br>
+
+<input type="radio" name="q1" value="B">&nbsp Buddha<br>
+
+<input type="radio" name="q1" value="C">&nbsp Shiva<br>
+<br>
+<p id="answer1" style="color:#ffc107"></p>
+
+</blockquote>
+
+</p><b>
+
+<hr>
+<p><b><i>Q2.</i></b> Which is the first Long-range ballistic missile in India?<br></b>
+
+<blockquote>
+
+<input type="radio" name="q2" value="A">&nbsp Akash<br>
+
+<input type="radio" name="q2" value="B">&nbsp Agni<br>
+
+<input type="radio" name="q2" value="C">&nbsp Prithvi<br>
+<br>
+<p id="answer2" style="color:#ffc107"></p>
+
+</blockquote>
+
+</p><b>
+
+<hr>
+<p><b><i>Q3.</i></b> When did The Wildlife Protection Act come into force?<br></b>
+
+<blockquote>
+
+<input type="radio" name="q3" value="A">&nbsp 1974<br>
+
+<input type="radio" name="q3" value="B">&nbsp 1972<br>
+
+<input type="radio" name="q3" value="C">&nbsp 1973<br>
+<br>
+<p id="answer3" style="color:#ffc107"></p>
+
+</blockquote>
+
+</p><b>
+
+<hr>
+<p><b><i>Q4.</i></b> Project Tiger was started in 1973 with the aim to <br></b>
+
+<blockquote>
+
+<input type="radio" name="q4" value="A">&nbsp Hunt tigers all over the country<br>
+
+<input type="radio" name="q4" value="B">&nbsp Protect tigers from hunting<br>
+
+<input type="radio" name="q4" value="C">&nbsp Hunt tigers only in specific regions<br>
+<br>
+<p id="answer4" style="color:#ffc107"></p>
+
+</blockquote>
+
+</p><b>
+
+<hr>
+ 
+<p><b><i>Q5.</i></b> How many Asanas does Surya Namaskar in total include?<br></b>
+
+<blockquote>
+
+<input type="radio" name="q5" value="A">&nbsp 12<br>
+
+<input type="radio" name="q5" value="B">&nbsp 14<br>
+
+<input type="radio" name="q5" value="C">&nbsp 10<br>
+<br>
+<p id="answer5" style="color:#ffc107"></p>
+
+</blockquote>
+
+</p><b>
+<hr>
+
+<button type="button" class="btn btn-warning" value="Submit" onClick="getScore(this.form);">Submit</button>
+<button type="reset" class="btn btn-warning" value="Clear">Clear</button>
+<br><br>
+
+</form>
+<form method="post" name="Form" onsubmit="" action="">
+
+</form>
+<div id="result" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <img id="resimg" src="" style="width:50vh !important;height:50vh !important;" />
+<br>
+<p style="text-align:centre !important; align-items:center !important;">
+You have scored <input type=text size=15 name="percentage" style="background-color:transparent !important; border:transparent !important; color:white; width:70px"><br>
+</p>
+  </div>
+</div>
+</div>
+</body>
+
+<script>
+
+var numQues = 5;
+
+var numChoi = 3;
+
+var answers = new Array(15);
+
+answers[0] = "B";
+
+answers[1] = "B";
+
+answers[2] = "B";
+
+answers[3] = "B";
+
+answers[4] = "A";
+
+
+function getScore(form) {
+
+document.getElementById("result").style.width = "100%";
+
+var score = 0;
+
+var currElt;
+
+var currSelection;
+
+for (i=0; i<numQues; i++) {
+
+currElt = i*numChoi;
+
+answered=false;
+
+for (j=0; j<numChoi; j++) {
+
+currSelection = form.elements[currElt + j];
+
+if (currSelection.checked) {
+
+answered=true;
+
+if (currSelection.value == answers[i]) {
+
+score++;
+
+break;
+
+}
+
+}
+
+}
+
+if (answered ===false){alert("Do answer all the questions, Please") ;return false;}
+
+}
+
+var scoreper = Math.round(score/numQues*100);
+if(scoreper==100){
+document.getElementById("resimg").src = "./images/congrats.gif";
+}
+
+else{
+document.getElementById("resimg").src = "./images/oops.gif";
+}
+ 
+form.percentage.value = scoreper + "%";
+
+form.mark.value=score;
+
+
+}
+
+function closeNav() {
+  document.getElementById("result").style.width = "0%";
+  document.getElementById("answer1").innerHTML = "Correct Answer : Buddha";
+  document.getElementById("answer2").innerHTML = "Correct Answer : Agni";
+  document.getElementById("answer3").innerHTML = "Correct Answer : 1972";
+  document.getElementById("answer4").innerHTML = "Correct Answer : Protect tigers from hunting";
+  document.getElementById("answer5").innerHTML = "Correct Answer : 12";
+   
+}
+
+</script>
+
+</html>
+
+
